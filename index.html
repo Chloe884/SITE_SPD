@@ -1,93 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Armand Zorn – English</title>
-  <link rel="stylesheet" href="index.css" />
-  <script src="index.js" defer></script>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <!-- Header / Navigation -->
-  <header class="site-header">
-    <div class="container nav-row">
-      <div class="brand">Armand Zorn</div>
-      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
-      <nav>
-        <ul id="nav-list" class="nav-list">
-          <li><a href="#about">About me</a></li>
-          <li><a href="#motivation">My work</a></li>
-          <li><a href="#experience">My topics</a></li>
-          <li><a href="#career">Frankfurt</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li class="social"><a href="#">Instagram</a></li>
-          <li class="social"><a href="#">LinkedIn</a></li>
-        </ul>
-      </nav>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="logo">Armand Zorn</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#motivation">Motivation</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#career">Career</a></li>
+        <li><a href="#committees">Committees</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
-  </header>
+  </nav>
 
-  <main id="main">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Introducing: <strong>Armand Zorn</strong></h1>
+      <p>Some information about my motivation, career and personal life</p>
+    </div>
+  </section>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-inner container">
-        <h1>Introducing: <strong>Armand Zorn</strong></h1>
-        <h4>Some information about my motivation, career and personal life</h4>
-        <div class="hero-sign">
-          <h3>Welcome!</h3>
-          <p>
-            My name is Armand Zorn. On 26 September 2021, I was elected to the German Parliament (Deutscher Bundestag). I represent the electoral district Frankfurt am Main I.
-          </p>
-          <p>
-            I would love to hear from you and get your feedback, questions, or comments. To get in touch with me, please feel free to send me an email.
-          </p>
-          <p>All the best,</p>
-        </div>
-      </div>
-    </section>
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2>Welcome!</h2>
+      <p>My name is Armand Zorn. On 26 September 2021, I was elected to the German Parliament (Deutscher Bundestag – the constitutional and legislative body in Germany). I represent the electoral district Frankfurt am Main I.</p>
+      <p>I am a “typical” citizen of Frankfurt. More than 50% Frankfurt’s citizens were not born in Frankfurt – and I am one of them. I was born in Cameroon and attended school in Yaoundé until the seventh grade. In 2000, I moved to Halle (Saale), Germany without the ability to speak German.</p>
+      <p>I would love to hear from you and get your feedback, questions, or comments. To get in touch with me, please feel free to send me an email.</p>
+      <p>All the best,</p>
+    </div>
+  </section>
 
-    <!-- Motivation Section -->
-    <section id="motivation" class="section container">
+  <!-- Motivation Section -->
+  <section id="motivation" class="section">
+    <div class="container">
       <h2>My Motivation</h2>
-      <h3>Fighting for a just and sustainable future</h3>
-      <p>
-        We are experiencing a structural change in the economy and society. Globalization, the climate crisis, digitalization and the Corona pandemic are creating a sense of insecurity and concern among many people.
-      </p>
-      <p>
-        I am fighting for a society in which all people have equal opportunities to participate, and to develop and realize their goals. We need policies and a political system giving people a sense of security and freedom.
-      </p>
-    </section>
+      <p>We are experiencing a structural change in the economy and society. Globalization, the climate crisis, digitalization and the Corona pandemic are creating a sense of insecurity and concern among many people.</p>
+      <p>I am fighting for a society in which all people have equal opportunities to participate, and to develop and realize their goals. We need policies and a political system giving people a sense of security and freedom.</p>
+    </div>
+  </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="section alt container">
+  <!-- Experience Section -->
+  <section id="experience" class="section">
+    <div class="container">
       <h2>Background and Experience</h2>
-
-      <div class="subsection">
+      <div class="experience-item">
         <h3>Diligence and hard work</h3>
         <div class="img-placeholder"></div>
-        <p>
-          While I grew up in modest circumstances, I was always taught that with diligence and hard work, I can achieve my dreams. With the support of my parents and society, I have been able to develop and realize my potential.
-        </p>
+        <p>While I grew up in modest circumstances, I was always taught that with diligence and hard work, I can achieve my dreams. With the support of my parents and society, I have been able to develop and realize my potential.</p>
       </div>
-
-      <div class="subsection">
+      <div class="experience-item">
         <h3>Working Experience</h3>
         <div class="img-placeholder"></div>
-        <p>
-          I gained professional experience at the Federal Ministry of Finance, the German Bundestag, the French National Assembly as well as at the Representation of the European Union in Hong Kong.
-        </p>
-        <p class="cv-link"><a href="#" aria-label="Download CV as PDF">My CV as PDF</a></p>
+        <p>I gained professional experience at the Federal Ministry of Finance, the German Bundestag, the French National Assembly as well as at the Representation of the European Union in Hong Kong.</p>
+        <p class="cv-link"><a href="#">My CV as PDF</a></p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Career Timeline Section -->
-    <section id="career" class="section container">
+  <!-- Career Section -->
+  <section id="career" class="section">
+    <div class="container">
       <h2>Career Path</h2>
-
       <ol class="timeline">
         <li><span class="t-year">1988</span><div class="t-body"><strong>Born and raised in Yaoundé (Cameroon)</strong></div></li>
         <li><span class="t-year">2000</span><div class="t-body"><strong>Relocation from Cameroon to Germany at age 12</strong></div></li>
@@ -96,13 +81,14 @@
         <li><span class="t-year">2014-2016</span><div class="t-body"><strong>Business Law & International Economics studies</strong></div></li>
         <li><span class="t-year">2021</span><div class="t-body"><strong>Elected to the German Parliament</strong></div></li>
       </ol>
-    </section>
+    </div>
+  </section>
 
-    <!-- Committees Section -->
-    <section id="committees" class="section alt container">
+  <!-- Committees Section -->
+  <section id="committees" class="section">
+    <div class="container">
       <h2>My Committees</h2>
       <p>I am a member in the Committee on Finance and on Digital Affairs and a deputy member in the Committee on European Union Affairs.</p>
-
       <div class="committee-grid">
         <article class="committee">
           <div class="img-placeholder"></div>
@@ -117,14 +103,13 @@
           <p>Committee on European Union Affairs: central forum for Bundestag participation in European matters.</p>
         </article>
       </div>
-    </section>
-
-  </main>
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p class="back-to-top"><a href="#main">Back to top</a></p>
+  <footer>
+    <div class="container">
+      <p class="back-to-top"><a href="#about">Back to top</a></p>
       <ul class="footer-links">
         <li><a href="#contact">Contact</a></li>
         <li><a href="#">Impressum</a></li>
@@ -135,5 +120,6 @@
     </div>
   </footer>
 
+  <script src="scripts.js"></script>
 </body>
 </html>

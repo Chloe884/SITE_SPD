@@ -3,33 +3,25 @@
 body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height:1.5; color:#111; background:#fff; }
 .container { max-width:1080px; margin:0 auto; padding:0 24px; }
 
-/* Skip Link */
-.skip-link { position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
-.skip-link:focus { left:16px; top:16px; width:auto; height:auto; padding:8px 12px; background:#000; color:#fff; border-radius:4px; z-index:1000; }
-
-/* Header */
-.site-header { position:sticky; top:0; background:#fff; border-bottom:1px solid #e5e7eb; z-index:100; }
-.nav-row { display:flex; justify-content:space-between; align-items:center; height:72px; }
-.brand { font-weight:700; font-size:1.2rem; color:#0b3d91; }
-.menu-toggle { display:none; }
-.nav-list { display:flex; list-style:none; gap:24px; }
-.nav-list li a { text-decoration:none; color:#111; padding:8px 12px; border-radius:6px; }
-.nav-list li a:hover { background:#f3f4f6; }
+/* Navigation */
+.navbar { position:sticky; top:0; background:#fff; border-bottom:1px solid #e5e7eb; z-index:100; }
+.navbar .container { display:flex; justify-content:space-between; align-items:center; height:72px; }
+.navbar .logo { font-weight:700; font-size:1.2rem; color:#0b3d91; }
+.nav-links { display:flex; list-style:none; gap:24px; }
+.nav-links li a { text-decoration:none; color:#111; padding:8px 12px; border-radius:6px; }
+.nav-links li a:hover { background:#f3f4f6; }
 
 /* Hero */
 .hero { background:#e5e7eb; padding:100px 0; }
-.hero-inner { max-width:700px; margin:0 auto; }
-.hero-inner h1 { font-size:2.5rem; margin-bottom:16px; font-weight:700; }
-.hero-inner h4 { font-size:1.2rem; color:#6b7280; margin-bottom:24px; }
-.hero-sign h3 { font-size:1.5rem; margin-bottom:12px; }
-.hero-sign p { margin-bottom:12px; }
+.hero-content { max-width:700px; margin:0 auto; text-align:center; }
+.hero-content h1 { font-size:2.5rem; margin-bottom:16px; font-weight:700; }
+.hero-content p { font-size:1.2rem; color:#6b7280; margin-bottom:24px; }
 
 /* Sections */
 .section { padding:60px 0; }
-.section.alt { background:#fbfbfd; }
 .section h2 { font-size:1.8rem; margin-bottom:16px; font-weight:700; }
 .section h3 { font-size:1.2rem; margin-bottom:12px; font-weight:500; color:#0b3d91; }
-.subsection { margin-top:24px; }
+.experience-item { margin-top:24px; }
 .cv-link a { text-decoration:underline; color:#0b3d91; }
 
 /* Image Placeholder */
@@ -40,27 +32,4 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-
 .timeline li { position:relative; padding-left:100px; margin-bottom:24px; }
 .timeline li .t-year { position:absolute; left:0; top:0; width:80px; font-weight:700; color:#0b3d91; }
 .timeline li::before { content:''; position:absolute; left:46px; top:5px; width:8px; height:8px; background:#0b3d91; border-radius:50%; }
-.timeline li::after { content:''; position:absolute; left:49px; top:18px; bottom:-12px; width:2px; background:#e5e7eb; }
-
-/* Committees Grid */
-.committee-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:32px; margin-top:32px; }
-.committee { background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:24px; }
-
-/* Footer */
-.site-footer { background:#fff; border-top:1px solid #e5e7eb; padding:40px 0; text-align:center; }
-.footer-links { list-style:none; display:flex; justify-content:center; gap:16px; margin-bottom:12px; }
-.footer-links li a { text-decoration:none; color:#6b7280; font-size:0.9rem; }
-.back-to-top a { color:#0b3d91; text-decoration:none; font-size:0.9rem; }
-
-/* Responsive */
-@media(max-width:768px){
-  .nav-list { display:none; flex-direction:column; position:absolute; top:72px; right:24px; background:#fff; padding:16px; border:1px solid #eee; border-radius:8px; }
-  .nav-list.open { display:flex; }
-  .menu-toggle { display:inline-block; }
-  .hero { padding:60px 0; }
-  .hero-inner h1 { font-size:2rem; }
-  .section h2 { font-size:1.6rem; }
-  .timeline li { padding-left:80px; }
-  .timeline li .t-year { width:60px; font-size:0.9rem; }
-  .img-placeholder { height:150px; }
-}
+.timeline li::after { content:''; position:absolute; left:49px; top:8px; width:4px; height:100%; background:#0b3d91; }
