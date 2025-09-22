@@ -1,20 +1,21 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const btn = document.querySelector('.menu-toggle');
-  const navList = document.getElementById('nav-list');
-
-  btn.addEventListener('click', function () {
-    const isOpen = navList.classList.toggle('open');
-    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    btn.textContent = isOpen ? 'Close' : 'Menu';
-  });
-
-  document.querySelectorAll('#nav-list a').forEach(a => {
-    a.addEventListener('click', () => {
-      if (navList.classList.contains('open')) {
-        navList.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-        btn.textContent = 'Menu';
-      }
+// Smooth scroll
+document.querySelectorAll('nav a').forEach(link=>{
+    link.addEventListener('click', e=>{
+        e.preventDefault();
+        document.querySelector(link.getAttribute('href')).scrollIntoView({behavior:'smooth'});
     });
-  });
 });
+
+// Simple slider
+let slides = document.querySelectorAll('.slide');
+let current = 0;
+function showSlide(index){
+    slides.forEach(s=>s.classList.remove('active'));
+    slides[index].classList.add('active');
+}
+function nextSlide(){
+    current = (current+1)%slides.length;
+    showSlide(current);
+}
+showSlide(current);
+setInterval(nextSlide, 3000);

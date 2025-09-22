@@ -1,35 +1,52 @@
-/* Reset & Base */
+/* Reset */
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height:1.5; color:#111; background:#fff; }
-.container { max-width:1080px; margin:0 auto; padding:0 24px; }
+body { font-family: 'Roboto', sans-serif; color:#333; scroll-behavior:smooth; }
 
 /* Navigation */
-.navbar { position:sticky; top:0; background:#fff; border-bottom:1px solid #e5e7eb; z-index:100; }
-.navbar .container { display:flex; justify-content:space-between; align-items:center; height:72px; }
-.navbar .logo { font-weight:700; font-size:1.2rem; color:#0b3d91; }
-.nav-links { display:flex; list-style:none; gap:24px; }
-.nav-links li a { text-decoration:none; color:#111; padding:8px 12px; border-radius:6px; }
-.nav-links li a:hover { background:#f3f4f6; }
+header { background:#0d3b66; padding:20px 50px; display:flex; justify-content:space-between; align-items:center; }
+.logo { height:50px; }
+nav ul { list-style:none; display:flex; gap:20px; }
+nav ul li a { color:white; text-decoration:none; font-weight:bold; padding:5px 10px; transition:0.3s; }
+nav ul li a:hover { background: rgba(255,255,255,0.2); border-radius:5px; }
 
 /* Hero */
-.hero { background:#e5e7eb; padding:100px 0; }
-.hero-content { max-width:700px; margin:0 auto; text-align:center; }
-.hero-content h1 { font-size:2.5rem; margin-bottom:16px; font-weight:700; }
-.hero-content p { font-size:1.2rem; color:#6b7280; margin-bottom:24px; }
+.hero { position:relative; }
+.hero img { width:100%; height:auto; }
+.hero-text { position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); color:white; text-align:center; }
+.hero-text h1 { font-size:3rem; margin-bottom:10px; }
+.hero-text p { font-size:1.2rem; }
+
+/* Slider */
+.slider-section { max-width:1200px; margin:50px auto; overflow:hidden; position:relative; }
+.slide { display:none; }
+.slide.active { display:block; }
+.slide img { width:100%; border-radius:10px; }
 
 /* Sections */
-.section { padding:60px 0; }
-.section h2 { font-size:1.8rem; margin-bottom:16px; font-weight:700; }
-.section h3 { font-size:1.2rem; margin-bottom:12px; font-weight:500; color:#0b3d91; }
-.experience-item { margin-top:24px; }
-.cv-link a { text-decoration:underline; color:#0b3d91; }
+.section { padding:60px 20px; max-width:1000px; margin:0 auto; }
+.section-alt { background:#f4f4f4; }
+h2 { font-size:2.5rem; color:#0d3b66; margin-bottom:20px; }
+p { margin-bottom:15px; font-size:1.1rem; }
 
-/* Image Placeholder */
-.img-placeholder { width:100%; height:200px; background:#e5e7eb; border-radius:8px; margin-bottom:16px; }
+/* About */
+.about-container { display:flex; gap:40px; flex-wrap:wrap; align-items:flex-start; }
+.about-img img { border-radius:10px; width:300px; height:300px; object-fit:cover; }
 
-/* Timeline */
-.timeline { list-style:none; padding-left:0; }
-.timeline li { position:relative; padding-left:100px; margin-bottom:24px; }
-.timeline li .t-year { position:absolute; left:0; top:0; width:80px; font-weight:700; color:#0b3d91; }
-.timeline li::before { content:''; position:absolute; left:46px; top:5px; width:8px; height:8px; background:#0b3d91; border-radius:50%; }
-.timeline li::after { content:''; position:absolute; left:49px; top:8px; width:4px; height:100%; background:#0b3d91; }
+/* Text + image containers */
+.text-img-container { display:flex; gap:40px; flex-wrap:wrap; align-items:center; margin-bottom:50px; }
+.text-img-container img { border-radius:10px; width:400px; height:300px; object-fit:cover; }
+
+/* Gallery */
+.gallery-container { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+.gallery-container img { width:300px; height:200px; object-fit:cover; border-radius:10px; }
+
+/* Footer */
+footer { background:#0d3b66; color:white; text-align:center; padding:20px; }
+
+/* Responsive */
+@media (max-width:768px){
+    nav ul { flex-direction:column; gap:10px; margin-top:10px; }
+    .about-container, .text-img-container { flex-direction:column; align-items:center; }
+    .hero-text h1 { font-size:2.2rem; }
+    h2 { font-size:2rem; }
+}
