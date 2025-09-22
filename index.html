@@ -1,72 +1,345 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Armand Zorn - Member of the German Bundestag</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Scroll Effet</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; scroll-behavior: smooth; background: #f5f5f5; color: #333; }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      color: white;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+    nav.scrolled { background: rgba(0, 0, 0, 0.9); }
+    nav .logo { font-size: 28px; font-weight: bold; color: #ffcc00; }
+    nav ul { list-style: none; display: flex; gap: 25px; }
+    nav ul li a { color: white; text-decoration: none; font-weight: 500; transition: color 0.3s ease; }
+    nav ul li a:hover { color: #ffcc00; }
+
+    /* Sections */
+    section {
+      padding: 120px 50px;
+    }
+    section h2 { text-align: center; margin-bottom: 50px; font-size: 36px; color: #222; }
+    section h2::after {
+      content: "";
+      width: 60px; height: 4px;
+      background: #ffcc00;
+      display: block;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      background: url("https://picsum.photos/1600/900?random=1") no-repeat center/cover;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+    }
+    .hero .content {
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 {
+      font-size: 70px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+    .hero .message {
+      font-size: 20px;
+      background: rgba(255,255,255,0.2);
+      padding: 10px 20px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    /* Section présentation */
+    .presentation {
+      background: #fff;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    .presentation h2 {
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+    .presentation p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    /* Histoire & Services (image + texte) */
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .row img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    .row .text {
+      flex: 1;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .row.reverse { flex-direction: row-reverse; }
+
+    /* Galerie */
+    .gallery-container {
+      position: relative;
+      overflow: hidden;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .gallery {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .gallery-item {
+      min-width: 300px;
+      max-width: 300px;
+      margin: 0 10px;
+      text-align: center;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-item p {
+      padding: 10px;
+      font-size: 14px;
+      color: #555;
+    }
+    .controls {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .controls button {
+      padding: 10px 20px;
+      margin: 0 8px;
+      border: none;
+      background: #ffcc00;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    .controls button:hover { background: #e6b800; }
+
+    /* Contact */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      text-align: center;
+    }
+    .grid img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .grid h3 { font-size: 22px; margin-bottom: 10px; }
+    .grid p { font-size: 15px; color: #555; margin-bottom: 10px; }
+    .grid button {
+      padding: 8px 16px;
+      border: none;
+      background: #ffcc00;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .grid button:hover { background: #e6b800; }
+
+    /* Footer */
+    footer {
+      background: #111;
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+      line-height: 2;
+    }
+  </style>
 </head>
 <body>
-    <!-- Language Switch -->
-    <div class="lang-switch">
-        <a href="/deutsch">Deutsch</a> | <span>English</span>
+
+  <!-- Navbar -->
+  <nav id="navbar">
+    <div class="logo">✨ MonLogo</div>
+    <ul>
+      <li><a href="#s1">Accueil</a></li>
+      <li><a href="#presentation">Présentation</a></li>
+      <li><a href="#s2">À propos</a></li>
+      <li><a href="#s3">Services</a></li>
+      <li><a href="#s4">Galerie</a></li>
+      <li><a href="#s5">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="s1">
+    <div class="content">
+      <h1>Bienvenue</h1>
+      <div class="message">Message d’accueil inspirant</div>
     </div>
+  </section>
 
-    <!-- Navigation -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#news">News</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#social">Social Media</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Présentation -->
+  <section class="presentation" id="presentation">
+    <h2>Bienvenue</h2>
+    <p>
+      Nous vous accueillons sur notre site officiel. Découvrez notre histoire, nos services, et parcourez notre galerie d’images pour en savoir plus.
+    </p>
+  </section>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <img src="img/1000488208.jpg" alt="Armand Zorn">
-        <h1>Armand Zorn</h1>
-        <h2>Member of the German Bundestag</h2>
-        <a href="#about" class="btn">Learn more</a>
-    </section>
+  <!-- A propos -->
+  <section id="s2">
+    <h2>Notre Histoire</h2>
+    <div class="row">
+      <img src="https://picsum.photos/600/400?random=10" alt="">
+      <div class="text">
+        Voici un texte qui accompagne l’image placée à gauche.  
+        Il présente l’histoire, les origines et les valeurs de notre organisation.
+      </div>
+    </div>
+  </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>About</h2>
-        <p>On 26 September 2021, I was elected to the German Bundestag representing Frankfurt am Main I. Born in Cameroon, I moved to Germany in 2000. I am committed to equality, education, and social cohesion.</p>
-    </section>
+  <!-- Services -->
+  <section id="s3">
+    <h2>Nos Services</h2>
+    <div class="row reverse">
+      <img src="https://picsum.photos/600/400?random=11" alt="">
+      <div class="text">
+        Voici un texte qui accompagne l’image placée à droite.  
+        Nous proposons une large gamme de services modernes et adaptés à vos besoins.
+      </div>
+    </div>
+  </section>
 
-    <!-- News Section -->
-    <section id="news">
-        <h2>News</h2>
-        <ul>
-            <li>Latest news headline 1</li>
-            <li>Latest news headline 2</li>
-        </ul>
-    </section>
+  <!-- Galerie -->
+  <section id="s4">
+    <h2>Galerie</h2>
+    <div class="gallery-container">
+      <div class="gallery" id="gallery">
+        <div class="gallery-item">
+          <img src="https://picsum.photos/400/200?random=1" alt="">
+          <p>Description de l’image 1</p>
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/400/200?random=2" alt="">
+          <p>Description de l’image 2</p>
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/400/200?random=3" alt="">
+          <p>Description de l’image 3</p>
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/400/200?random=3" alt="">
+          <p>Description de l’image 3</p>
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/400/200?random=3" alt="">
+          <p>Description de l’image 3</p>
+        </div>
+        
+      </div>
+    </div>
+    <div class="controls">
+      <button onclick="prev()">⬅ Précédent</button>
+      <button onclick="next()">Suivant ➡</button>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:armand.zorn@bundestag.de">armand.zorn@bundestag.de</a></p>
-        <p>Address: Platz der Republik 1, 11011 Berlin</p>
-    </section>
+  <!-- Contact -->
+  <section id="s5">
+    <h2>Contact</h2>
+    <div class="grid">
+      <div>
+        <img src="https://picsum.photos/300/200?random=7" alt="">
+        <h3>Titre 1</h3>
+        <p>Petite description du service ou contact.</p>
+        <button>En savoir plus</button>
+      </div>
+      <div>
+        <img src="https://picsum.photos/300/200?random=8" alt="">
+        <h3>Titre 2</h3>
+        <p>Petite description du service ou contact.</p>
+        <button>En savoir plus</button>
+      </div>
+      <div>
+        <img src="https://picsum.photos/300/200?random=9" alt="">
+        <h3>Titre 3</h3>
+        <p>Petite description du service ou contact.</p>
+        <button>En savoir plus</button>
+      </div>
+    </div>
+  </section>
 
-    <!-- Social Media Section -->
-    <section id="social">
-        <h2>Social Media</h2>
-        <a href="#">Instagram</a> | <a href="#">LinkedIn</a>
-    </section>
+  <!-- Footer -->
+  <footer>
+    <p>Armand Zorn, Mitglied des Deutschen Bundestages</p>
+    <p>Zurück zum Start | Kontakt | Impressum | Datenschutz | Magazin</p>
+    <p>armand.zorn@bundestag.de</p>
+  </footer>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Armand Zorn</p>
-        <p>
-            <a href="#">Impressum</a> | <a href="#">Datenschutz</a>
-        </p>
-    </footer>
+  <!-- JS -->
+  <script>
+    let index = 0;
+    const gallery = document.getElementById('gallery');
+    const items = gallery.querySelectorAll('.gallery-item');
+    const visibleItems = 3;
+
+    function showGallery() {
+      gallery.style.transform = `translateX(-${index * 320}px)`;
+    }
+    function next() {
+      if (index < items.length - visibleItems) index++;
+      showGallery();
+    }
+    function prev() {
+      if (index > 0) index--;
+      showGallery();
+    }
+
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
+
 </body>
 </html>
